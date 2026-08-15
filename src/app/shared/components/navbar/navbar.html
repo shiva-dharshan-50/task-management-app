@@ -1,0 +1,17 @@
+<nav class="flex items-center sticky justify-between px-5 py-2 text-gray-500 h-[10vh]">
+  <div class="flex gap-5">
+    <img class="w-10 h-10" src="/assets/images/angular-icon.png" />
+    <button
+      (click)="logout()"
+      class="p-2 px-3 border-2 border-red-500 text-red-500 rounded-full cursor-pointer"
+    >
+      logout
+    </button>
+  </div>
+  <div class="flex items-center gap-4 text-lg font-sans">
+    <a routerLink="home">Home</a>
+    <a routerLink="info">Info</a>
+    <a routerLink="service">Service</a>
+    <a routerLink="summary">Summary</a>
+  </div>
+</nav>
