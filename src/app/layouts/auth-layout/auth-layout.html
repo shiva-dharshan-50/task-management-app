@@ -1,122 +1,48 @@
-<div
-  class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 via-white to-purple-100 p-6"
->
-  @if (isLoginMode) {
-    <mat-card class="main-card w-full max-w-md rounded-3xl shadow-2xl p-8">
-      <div class="flex flex-col items-center mb-8">
-        <div class="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-4">
-          <mat-icon class="text-white text-4xl">person</mat-icon>
+<div class="min-h-screen bg-slate-50 p-4 md:p-6">
+  <div
+    class="grid min-h-[calc(100vh-2rem)] overflow-hidden rounded-3xl bg-white shadow-sm md:grid-cols-2 md:min-h-[calc(100vh-3rem)]"
+  >
+    <!-- Branding Section -->
+    <section
+      class="relative hidden overflow-hidden bg-violet-600 p-10 text-white md:flex md:flex-col md:justify-between lg:p-14"
+    >
+      <div>
+        <div class="mb-8 flex items-center gap-3">
+          <div
+            class="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 text-xl font-bold backdrop-blur"
+          >
+            T
+          </div>
+
+          <span class="text-xl font-semibold tracking-tight"> TaskFlow </span>
         </div>
 
-        <h1 class="text-3xl font-bold">Welcome Back</h1>
+        <div class="max-w-md">
+          <h1 class="text-4xl font-bold leading-tight lg:text-5xl">
+            Work together.
+            <br />
+            Get things done.
+          </h1>
 
-        <p class="text-gray-500 mt-2">Sign in to continue</p>
-      </div>
-
-      <form [formGroup]="loginForm" class="flex flex-col gap-5">
-        <mat-form-field appearance="outline">
-          <mat-label>Username</mat-label>
-
-          <mat-icon matPrefix>person</mat-icon>
-
-          <input
-            matInput
-            formControlName="userName"
-            placeholder="Enter username"
-            (input)="
-              loginForm
-                .get('userName')
-                ?.setValue($any($event.target).value.toUpperCase(), { emitEvent: false })
-            "
-          />
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-          <mat-label>Password</mat-label>
-
-          <mat-icon matPrefix>lock</mat-icon>
-
-          <input matInput type="password" formControlName="password" placeholder="Enter password" />
-        </mat-form-field>
-        <button
-          mat-raised-button
-          color="primary"
-          class="h-12 rounded-xl mt-2"
-          [disabled]="loading"
-          (click)="login()"
-        >
-          @if (loading) {
-            <mat-spinner diameter="20"> </mat-spinner>
-          } @else {
-            <span> Login </span>
-          }
-        </button>
-      </form>
-
-      <div class="text-center mt-6 text-sm text-gray-500">
-        Don't have an account?
-
-        <a
-          class="text-indigo-600 font-semibold cursor-pointer hover:underline"
-          (click)="toggleLogin()"
-        >
-          Register
-        </a>
-      </div>
-    </mat-card>
-  } @else {
-    <mat-card class="main-card w-full max-w-md rounded-3xl shadow-2xl p-8">
-      <div class="flex flex-col items-center mb-8">
-        <div class="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-4">
-          <mat-icon class="text-white text-4xl">person</mat-icon>
+          <p class="mt-6 text-base leading-7 text-violet-100">
+            Organize projects, manage tasks and collaborate with your team in real time.
+          </p>
         </div>
-
-        <h1 class="text-3xl font-bold">Welcome</h1>
-
-        <p class="text-gray-500 mt-2">Create new account to continue</p>
       </div>
 
-      <form [formGroup]="loginForm" class="flex flex-col gap-5">
-        <mat-form-field appearance="outline">
-          <mat-label>Username</mat-label>
+      <div class="text-sm text-violet-200">Real-time task management & collaboration</div>
 
-          <mat-icon matPrefix>person</mat-icon>
+      <!-- Decorative shapes -->
+      <div class="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-white/10"></div>
 
-          <input
-            matInput
-            formControlName="userName"
-            placeholder="Enter username"
-            (input)="
-              loginForm
-                .get('userName')
-                ?.setValue($any($event.target).value.toUpperCase(), { emitEvent: false })
-            "
-          />
-        </mat-form-field>
+      <div class="absolute -right-10 top-20 h-32 w-32 rounded-full bg-white/5"></div>
+    </section>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Password</mat-label>
-
-          <mat-icon matPrefix>lock</mat-icon>
-
-          <input matInput type="password" formControlName="password" placeholder="Enter password" />
-        </mat-form-field>
-
-        <button mat-raised-button color="primary" class="h-12 rounded-xl mt-2" (click)="register()">
-          Register
-        </button>
-      </form>
-
-      <div class="text-center mt-6 text-sm text-gray-500">
-        Already have an account?
-
-        <a
-          class="text-indigo-600 font-semibold cursor-pointer hover:underline"
-          (click)="toggleLogin()"
-        >
-          Login
-        </a>
+    <!-- Auth Content -->
+    <section class="flex items-center justify-center p-6 sm:p-10 lg:p-14">
+      <div class="w-full max-w-md">
+        <router-outlet></router-outlet>
       </div>
-    </mat-card>
-  }
+    </section>
+  </div>
 </div>

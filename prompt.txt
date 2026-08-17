@@ -1,0 +1,363 @@
+# Project Context — Real-Time Task Management / Collaboration App
+
+I am building a serious portfolio project by myself to strengthen my resume as an Angular developer with 1+ years of professional experience.
+
+## Project
+
+Build a **Real-Time Task Management / Collaboration Application** similar in concept to a simplified Jira/Trello.
+
+The goal is NOT to create a basic tutorial CRUD application. I want this to look and behave like a real-world, production-style application that I can confidently explain in interviews and showcase on my resume/GitHub.
+
+## Technology Stack
+
+### Frontend
+
+* Angular — use the latest stable Angular version available when we are working on the project
+* TypeScript
+* Angular Signals where appropriate
+* RxJS where appropriate
+* Reactive Forms
+* Angular Router
+* HTTP Interceptors
+* Route Guards
+* Lazy-loaded features/routes
+* Reusable components
+* Responsive UI
+* Good component architecture
+
+### Backend
+
+* Node.js
+* Express.js
+* REST APIs
+* JWT authentication
+* bcrypt/password hashing
+* Middleware
+* Centralized error handling
+* Request validation
+* Proper HTTP status codes
+* Consistent API response structure
+
+### Database
+
+* MongoDB
+* Mongoose
+* Proper schemas/models
+* References/relationships where appropriate
+* Indexing where useful
+* Pagination/filtering/search
+* Aggregation where useful
+
+### Real-Time Communication
+
+* Socket.IO
+* Real-time task updates
+* Real-time notifications
+* Real-time collaboration between users
+
+## Core Application Concept
+
+Users can:
+
+1. Register and log in
+2. Create projects
+3. Join/access projects
+4. Create task boards
+5. Create columns such as:
+
+   * TODO
+   * IN PROGRESS
+   * REVIEW
+   * DONE
+6. Create tasks
+7. Assign tasks to users
+8. Set priorities
+9. Set due dates
+10. Add descriptions
+11. Add comments
+12. Move tasks between columns
+13. Drag and drop tasks
+14. See task changes in real time
+15. Receive notifications
+16. Search/filter/sort tasks
+17. View project/task statistics
+18. Manage their profile
+
+## Authentication & Authorization
+
+Implement proper authentication rather than fake frontend-only login.
+
+Expected functionality:
+
+* Register
+* Login
+* Logout
+* Password hashing with bcrypt
+* JWT authentication
+* HTTP interceptor for attaching JWT
+* Authentication guard
+* Protected routes
+* User roles/permissions
+* Project-level access control
+
+Potential roles:
+
+* Admin
+* Project Manager
+* Member
+
+Do not implement complicated authorization unnecessarily. Keep it realistic and explainable.
+
+## Real-Time Features
+
+Use Socket.IO for features such as:
+
+* Task created
+* Task updated
+* Task deleted
+* Task moved between columns
+* Task assigned to another user
+* Comment added
+* Notification received
+
+Example:
+
+User A moves a task from:
+
+TODO → IN PROGRESS
+
+User B currently viewing the same project should see the update without refreshing the page.
+
+## Main UI Areas
+
+### Authentication
+
+* Login
+* Register
+
+### Main Layout
+
+* Sidebar
+* Header
+* User profile
+* Notifications
+* Main content area
+
+### Dashboard
+
+Display things such as:
+
+* Total projects
+* Assigned tasks
+* Completed tasks
+* Overdue tasks
+* Tasks by priority
+* Recent activity
+
+### Projects
+
+* Project list
+* Create project
+* Project details
+* Project members
+* Project settings
+
+### Kanban Board
+
+Example:
+
+TODO | IN PROGRESS | REVIEW | DONE
+
+Tasks should support drag-and-drop.
+
+### Task Details
+
+A task can contain:
+
+* Title
+* Description
+* Status
+* Priority
+* Assignee
+* Reporter
+* Due date
+* Comments
+* Activity history
+
+### Notifications
+
+Examples:
+
+* You were assigned a task
+* A task assigned to you was updated
+* Someone commented on your task
+* A task was moved
+* A project member joined
+
+## Backend API Design
+
+Use clean REST API conventions.
+
+Potential structure:
+
+/api/auth
+/api/users
+/api/projects
+/api/projects/:projectId/members
+/api/projects/:projectId/boards
+/api/tasks
+/api/comments
+/api/notifications
+
+Do not blindly use these endpoints if a better REST design makes more sense. Explain architectural decisions when necessary.
+
+## Database Models
+
+Likely models:
+
+* User
+* Project
+* ProjectMember
+* Board
+* Column
+* Task
+* Comment
+* Notification
+* ActivityLog
+
+Do not create unnecessary models. We should evolve the schema based on actual requirements.
+
+## Important Development Rules
+
+I am building this project ALONE, so guide me step by step.
+
+Do NOT give me the entire project at once.
+
+Instead:
+
+1. Explain what we are building in the current step.
+2. Tell me exactly which folder/file to create or modify.
+3. Give me the code.
+4. Explain important parts of the code.
+5. Tell me how to run/test it.
+6. Wait for me to confirm it works before moving to the next major step.
+
+If something is broken, debug the existing implementation instead of unnecessarily rewriting everything.
+
+## Code Quality Expectations
+
+Use:
+
+* Clean folder structure
+* Separation of concerns
+* Reusable services/components
+* Meaningful naming
+* TypeScript types/interfaces
+* Environment variables
+* Proper error handling
+* Consistent API responses
+* Async/await where appropriate
+* Avoid unnecessary duplication
+* Avoid overengineering
+
+Do not introduce advanced patterns just for the sake of using them. Every technology should have a practical reason.
+
+## Learning Style
+
+I want to understand what I am building, not just copy/paste code.
+
+Whenever we introduce something important, briefly explain:
+
+* What it does
+* Why we need it
+* Where it belongs
+* How it works with the rest of the application
+
+However, don't overwhelm me with unnecessary theory.
+
+## Resume Focus
+
+The project should eventually demonstrate experience with:
+
+* Angular
+* TypeScript
+* RxJS
+* Angular Signals
+* Reactive Forms
+* REST APIs
+* Node.js
+* Express
+* MongoDB
+* Mongoose
+* JWT
+* bcrypt
+* Role-based authorization
+* WebSockets/Socket.IO
+* Real-time updates
+* Drag-and-drop
+* State management where genuinely useful
+* Testing
+* Git
+* Docker where appropriate
+* CI/CD
+* Deployment
+* Production-style architecture
+
+## Development Philosophy
+
+Build this like a real application, not a YouTube tutorial.
+
+Prefer:
+
+GOOD:
+
+* Feature-based Angular architecture
+* Proper API layers
+* Reusable components
+* Validation
+* Error handling
+* Loading states
+* Empty states
+* Real-time updates
+* Security considerations
+* Testing
+* Deployment
+
+Avoid:
+
+* Huge components
+* Everything inside one file
+* Hardcoded data when an API should exist
+* Fake authentication
+* Storing sensitive information unnecessarily
+* Overcomplicated architecture
+* Adding libraries without a reason
+
+## Current Starting Point
+
+I already have:
+
+* Node.js installed
+* MongoDB installed
+* Angular environment available
+* Basic knowledge of Angular
+* Basic knowledge of Express
+* Basic knowledge of MongoDB/Mongoose
+
+I want to start the project from the beginning by creating the project folders and setting up the Angular frontend and Express backend properly.
+
+## Important
+
+Whenever I paste this prompt into a new conversation, assume this is the same project and continue from the current development stage that I tell you.
+
+If I say something like:
+
+"Continue the task management project"
+
+first use the context in this prompt and whatever code/status I provide, then continue from there.
+
+Do not make me explain the entire project again.
+
+When there are multiple technically valid approaches, recommend the one that is most appropriate for a developer with 1+ years of Angular experience who wants the project to be valuable for interviews and a resume.
+
+Always verify technical details against the current stable versions/documentation when version-specific behavior matters.
